@@ -1,0 +1,1 @@
+Buenos días hoy es [dia] [diaSemana] de [mes].

@@ -1,0 +1,28 @@
+<script>
+    /*
+let alumnos = '{"nombre": "pepe", "ciudad":"valencia", "matriculadoen":["cliente", "servidor", "despliegue"]}';
+
+console.log(JSON.parse(alumnos));
+
+let alumnos2 = {"nombre": "pepe", "ciudad":"valencia", "matriculadoen":["cliente", "servidor", "despliegue"]};
+
+console.log(alumnos2);
+console.log(alumnos2["ciudad"]);
+
+
+
+let alumnos3 = [{"nombre": "pepe", "ciudad":"valencia"},
+                {"nombre": "pepa", "ciudad":"valencia"}];
+let alumnValencia = alumnos3.filter(a=> a.ciudad == "valencia");
+
+
+console.log(alumnValencia);
+*/
+let alumnos4 = [{"nombre": "pepe", "ciudad":"valencia", "matriculadoen":["cliente", "servidor", "despliegue"]},
+                {"nombre": "pepa", "ciudad":"valencia", "matriculadoen":["servidor", "despliegue"]}];
+//alumnos4.filter(a=>a.ciudad="valencia").map(n=> console.log(n.nombre));
+
+//let alumnCliente= alumnos4.filter(i=> i.matriculadoen.includes("cliente") && i.ciudad == "valencia").map(n=> console.log(n.nombre));
+let alumnCliente= alumnos4.filter(i=> i.matriculadoen.indexOf("cliente")!=-1 && i.ciudad == "valencia").map(n=> console.log(n.nombre));
+
+</script>

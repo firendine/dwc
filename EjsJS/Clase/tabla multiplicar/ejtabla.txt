@@ -1,0 +1,9 @@
+un archivo html
+otro js
+se comunican mediante script src
+
+tabla de multiplicar
+
+pedir datos y comprobar si es un dato correcto (alerts y prompts)
+
+document.write() <--- Pintar con variable string 

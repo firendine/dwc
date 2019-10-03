@@ -1,0 +1,12 @@
+Javascript no tiene tipo de datos. --> //ver typescript
+
+
+Javascript asume el tipo de datos según el valor que se le dé.
+No existe el tipo de datos "char".
+El ambito del let ahora se puede hacer más pequeño y se puede meter en un bucle for o en un if.
+
+let es de typescript
+
+aunque usemos el let, tampoco hay obligación de declarar variables.
+
+El var se utiliza, pero el let es más "actualizado"

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="p1">
+        <p>1er parrafo</p>
+        <p>2ndo parrafo</p>
+        <p>3er párrafo</p>
+        <p>4to párrafo</p>
+    </div>
+    <div id="p2">
+        <p>1</p>
+        <p>2</p>
+        <p>3</p>
+        <p>4</p>
+    </div>
+    <div id="p3">
+        <p>1er parrafo</p>
+        <p>2ndo parrafo</p>
+        <p>3er párrafo</p>
+        <p>4to párrafo</p>
+    </div>
+
+
+</body>
+<script>
+let parrafos =  document.getElementsByTagName('p');
+console.log(parrafos);
+console.log(parrafos.length);
+
+
+for(i=0;i<parrafos.length; i++){
+    console.log(parrafos[i]);
+}
+
+</script>
+
+</html>

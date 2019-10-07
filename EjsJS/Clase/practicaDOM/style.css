@@ -1,0 +1,14 @@
+#catalogo,#carrito {
+    border: 2px black solid;
+    display: flex;
+    flex-direction: row;
+    width: fit-content;
+}
+
+#pc1,#pc2,#pc3{
+    border: 0.5px black solid;
+}
+img{
+    width:200px;
+}
+

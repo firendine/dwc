@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<!-- nombreClase.prototype-->
+<!-- miCarrito={
+        nombre: "pepe"
+        fecha:
+        articulos:[{}{}{}]
+    
+    
+    
+botón ver carrito -> innerHTML    
+    
+-->
+
+<body>
+
+    <button type="button" onclick="crearCarrito()">Crear Carrito</button>
+    <button type="button" onclick="anyadirArticulo()">Añadir Articulo</button>
+    <button type="button" onclick="verCarrito()">Ver Carrito</button>
+
+</body>
+<script>
+    /*
+        class Carrito { // articulo: codigo nombre descripcion precio
+            constructor(nombre) {
+                this.nombre = nombre;
+                this.fecha = fecha;
+                this.articulos = [];
+            }
+    
+    
+        }
+    */
+
+let miCarrito;
+
+    function Carrito(nombre) {
+        this.nombre = nombre;
+        this.fecha;
+        this.articulos = [];
+    }
+
+    function Articulo(codigo, nombre, descripcion, precio) {
+        this.codigo = codigo;
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.precio = precio;
+    }
+    Carrito.prototype.anyadir = function (a) {
+        this.articulos.push(a);
+    }
+    Carrito.prototype.ver = function() {
+        for(let i=0; i<this.articulos.length; i++){
+            console.log(this.articulos[i]);
+        }
+        
+    }
+
+    function crearCarrito() {
+        let nombre = prompt("nombre del dueño");
+        date = new Date();
+        fecha = date.getDate() +"/"+ date.getMonth()+"/"+date.getYear();
+        miCarrito = new Carrito(nombre,fecha);
+    }
+
+    function anyadirArticulo() {
+        let codigo = prompt("codigo");
+        let nombre = prompt("nombre");
+        let descripcion = prompt("descripcion");
+        let precio = prompt("precio");
+
+        let miArticulo = new Articulo(codigo, nombre, descripcion, precio);
+        miCarrito.anyadir(miArticulo);
+    }
+
+    function verCarrito() {
+        miCarrito.ver();
+    }
+
+
+/*
+
+    function vaciarCarrito() {
+        let carrito = document.getElementById("carrito");
+        while (articulos.firstChild) {
+            articulos.removeChild(articulos.firstChild);
+        }
+
+    }
+
+   
+
+
+
+    var valorTotal = parseInt(document.getElementById("precioTotal").getAttribute("value"));
+    console.log(valorTotal);
+
+
+    function sumarPrecio(articulo) {
+
+        valorTotal += parseInt(articulo.getAttribute("value"));
+
+        document.getElementById("precioTotal").innerHTML = valorTotal;
+        document.getElementById("precioTotal").getAttribute("value").innerHTML = valorTotal;
+    }
+*/
+</script>
+
+</html>

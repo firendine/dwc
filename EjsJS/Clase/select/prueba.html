@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>Document</title>
+</head>
+
+<body>
+    <form>
+        <select multiple id="1">
+            <option id="1a" value="1a">1a</option>
+            <option id="1b"value="1b">1b</option>
+            <option id="1c"value="1c">1c</option>
+            <option id="1d"value="1d">1d</option>
+        </select>
+        <button type="nuevo" onclick="addElementToList1()">nuevo</button>
+        <button type="nuevoEn">nuevo en</button>
+        <button type="borrar" >borrar</button>
+        <button type="borrarSel">borrar seleccionado</button>
+
+        <select multiple id="2">
+            <option value="2a">2a</option>
+            <option value="2b">2b</option>
+            <option value="2c">2c</option>
+            <option value="2d">2d</option>
+        </select>
+        <button type="nuevo">nuevo</button>
+        <button type="nuevoEn">nuevo en</button>
+        <button type="borrar" >borrar</button>
+        <button type="borrarSel">borrar seleccionado</button>
+    </form>
+</body>
+<script>
+
+function addElementToList1(){
+   let valorElemento = prompt("Inserta el valor a añadir a la lista");
+
+
+   document.getElementById("1").appendChild("option");
+   //document.getElementById
+
+}
+
+function addElementToList2(){
+
+}
+</script>
+
+</html>

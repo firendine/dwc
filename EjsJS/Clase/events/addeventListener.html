@@ -1,0 +1,69 @@
+<script>
+    /* Con window.onload no se cargan los scripts hasta que el html se ha cargado completamente,
+    así no hay errores a la hora de usar DOM si ponemos el <script> antes que el <html>
+    */
+
+
+    function msg() {
+        alert(this.id + "Has pulsado. funcion1");
+        console.log(event); //esto nos crea un objeto que imprime la informacion del evento que ha sucedido
+    }
+    function msg2() {
+        alert("Has pulsado. funcion2")
+    }
+    function msg3() {
+        alert("Has pulsado.funcion3")
+    }
+    /*
+    document.getElementById("d1").addEventListener("click", msg, true);
+    document.getElementById("b1").addEventListener("click", msg, true);
+    document.getElementById("b1").addEventListener("click", msg2, true);
+    document.getElementById("b1").addEventListener("click", msg3, true);
+    //document.getElementById("b1").onclick=msg2;
+    //document.getElementById("b1").onclick=msg3;
+    */
+
+    /*
+    --- Revisar:
+     · Event Bubbling,
+     · Event Capturing
+    */
+
+    /* en el addEventlistener, para cada evento (click, mousemove...), 
+    puedes elegir las funciones que la gestionen pudiendo poner varias,
+    con getElementbyId.onclick se sobrescriben las funciones y solo se ejecutaria la ultima
+    */
+    window.onload = function () {
+        capa = document.getElementById("catalogo");
+        inputs = capa.getElementsByTagName("input");
+        for (i = 0; i < inputs.length; i++) {
+            inputs[i].addEventListener("click", msg, true);
+        }
+
+    }
+
+
+</script>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="catalogo">
+        <input id="1" type="button" value="Pulsa1">
+        <input id="2" type="button" value="Pulsa2">
+        <input id="3" type="button" value="Pulsa3">
+    </div>
+    <div id="d1">
+        texto
+        texto
+        tyexto
+    </div>
+    <input id="b1" type="button" value="Pulsa">
+</body>
+
+</html>

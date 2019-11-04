@@ -9,66 +9,208 @@
     <title>Document</title>
 </head>
 
-<!-- nombreClase.prototype-->
-<!-- miCarrito={
-        nombre: "pepe"
-        fecha:
-        articulos:[{}{}{}]
-    
-    
-    
-botón ver carrito -> innerHTML    
-    
--->
 <body>
-    <span>Catálogo</span> <button type="button" onclick="vaciarCarrito()">Vaciar</button>
-    <div id="catalogo" >
-        <div id="pc1" value="500" onclick="sumarPrecio(this)">
+    <h2>Catálogo</h2>
+    <button type="button" onclick="vaciarCarrito()">Vaciar Carrito</button>
+    <div id="catalogo">
+        <div id="pc1" value="500" onclick="sumarPrecio(this), addToCarrito(this)">
             <img src="pc1.jpg">
-            <span>Precio: 500€</span>
+            <p>Precio: 500€</p>
         </div>
-        <div id="pc2" value="300" onclick="sumarPrecio(this)">
+        <div id="pc2" value="300" onclick="sumarPrecio(this), addToCarrito(this)">
             <img src="pc2.jpg">
-            <span>Precio: 300€</span>
+            <p>Precio: 300€</p>
         </div>
-        <div id="pc3" value="800" onclick="sumarPrecio(this)">
+        <div id="pc3" value="800" onclick="sumarPrecio(this), addToCarrito(this)">
             <img src="pc3.jpg">
-            <span>Precio: 800€</span>
+            <p>Precio: 800€</p>
         </div>
     </div>
-    <span>Carrito</span><br>
-    <span id="precioTotal" value="0">Precio Total Carrito: 0€</span>
+    <br><br>
+    <h2>Carrito</h2>
+    <p id="precioTotal" value="0">Precio Total Carrito: 0€</p>
     <div id="carrito">
-        <div> Hola</div>
-        <div>Adios</div>
-        <div>Que tal</div>
 
     </div>
 
 </body>
 <script>
-        function vaciarCarrito() {
-            let carrito = document.getElementById("carrito");
-            while (carrito.firstChild) {
-                carrito.removeChild(carrito.firstChild);
+
+
+    function addToCarrito(articulo) {
+
+        var carrito = document.getElementById("carrito");
+
+
+        var idArticulo = articulo.getAttribute("id");
+        var rutaImagen = articulo.getElementsByTagName("img")[0].getAttribute("src");
+        var precioArt = articulo.getAttribute("value");
+
+        var nuevoArticulo = document.createElement("div");
+        var imagenArticulo = document.createElement("img");
+
+
+        var cantArtText = document.createTextNode(toString(artCount));
+        var artsCarrito = carrito.children;
+
+        console.log(artsCarrito);
+        let idArtCarrito;
+        let artExiste;
+        var parrafo;
+
+
+        if (artsCarrito.length == 0) {
+            console.log("no hay articulos");
+            var art = carrito.appendChild(nuevoArticulo);
+            art.setAttribute("id", "c-" + idArticulo);
+            art.setAttribute("value", precioArt);
+            art.setAttribute("valueTotal", precioArt);
+            art.setAttribute("cantidad", 1);
+            art.appendChild(imagenArticulo).setAttribute("src", rutaImagen);
+
+
+            art.appendChild(document.createElement("p")).textContent = "Unidades: " + art.getAttribute("cantidad");
+            art.appendChild(document.createElement("p")).textContent = "Precio: " + art.getAttribute("value") + "€";
+            art.appendChild(document.createElement("p")).textContent = "Precio Total: " + art.getAttribute("valueTotal") + "€";
+
+            var eraseBut = art.appendChild(document.createElement("button"));
+            var eraseAllBut = art.appendChild(document.createElement("button"));
+            eraseBut.textContent = "Borrar";
+            eraseBut.setAttribute("type", "button");
+            eraseBut.setAttribute("onclick", "borrarUnidad(this)");
+            eraseAllBut.textContent = "Borrar Todos";
+            eraseAllBut.setAttribute("type", "button");
+            eraseAllBut.setAttribute("onclick", "borrarUnidades(this)")
+
+
+            console.log("se crea articulo L1");
+
+
+
+
+        } else {
+            console.log("hay articulos");
+            for (let i = 0; i < artsCarrito.length; i++) {
+
+                idArtCarrito = artsCarrito[i].getAttribute("id");
+
+                if ((idArtCarrito != null || typeof idArtCarrito != "undefined") && idArtCarrito == "c-" + idArticulo) {
+                    console.log("El artículo existe");
+                    artExiste = true;
+
+                    var artCount = document.getElementById("c-" + idArticulo).getAttribute("cantidad");
+                    artCount++;
+                    document.getElementById("c-" + idArticulo).setAttribute("cantidad", artCount);
+                    document.getElementById("c-" + idArticulo).getElementsByTagName("p")[0].textContent = "Unidades: " + document.getElementById("c-" + idArticulo).getAttribute("cantidad");
+                    var totalValue = document.getElementById("c-" + idArticulo).getAttribute("value");
+                    document.getElementById("c-" + idArticulo).setAttribute("valueTotal", totalValue * artCount);
+                    document.getElementById("c-" + idArticulo).getElementsByTagName("p")[2].textContent = "Precio Total: " + document.getElementById("c-" + idArticulo).getAttribute("valueTotal") + "€";
+                    console.log("no se crea articulo");
+                    break;
+
+                } else {
+                    console.log("El artículo no existe");
+                    artExiste = false;
+
+                }
+
             }
-    
+
+            if (artExiste == false) {
+                var art = carrito.appendChild(nuevoArticulo);
+                art.setAttribute("id", "c-" + idArticulo);
+                art.setAttribute("value", precioArt);
+                art.setAttribute("valueTotal", precioArt);
+                art.setAttribute("cantidad", 1);
+                art.appendChild(imagenArticulo).setAttribute("src", rutaImagen);
+
+
+                art.appendChild(document.createElement("p")).textContent = "Unidades: " + art.getAttribute("cantidad");
+                art.appendChild(document.createElement("p")).textContent = "Precio: " + art.getAttribute("value") + "€";
+                art.appendChild(document.createElement("p")).textContent = "Precio Total: " + art.getAttribute("valueTotal") + "€";
+
+                var eraseBut = art.appendChild(document.createElement("button"));
+                var eraseAllBut = art.appendChild(document.createElement("button"));
+                eraseBut.textContent = "Borrar";
+                eraseBut.setAttribute("type", "button");
+                eraseBut.setAttribute("onclick", "borrarUnidad(this)");
+                eraseAllBut.textContent = "Borrar Todos";
+                eraseAllBut.setAttribute("type", "button");
+                eraseAllBut.setAttribute("onclick", "borrarUnidades(this)")
+
+
+                console.log("se crea articulo L2");
+
+            }
         }
-    
-    
-    
+
+    }
+
+    function vaciarCarrito() {
+        let carrito = document.getElementById("carrito");
+        while (carrito.firstChild) {
+            carrito.removeChild(carrito.firstChild);
+        }
+        valorTotal = 0;
+        document.getElementById("precioTotal").textContent = "Precio Total Carrito: " + valorTotal + "€";
+        document.getElementById("precioTotal").setAttribute("value", valorTotal);
+
+    }
+
+    function sumarPrecio(articulo) {
         var valorTotal = parseInt(document.getElementById("precioTotal").getAttribute("value"));
-        console.log(valorTotal);
-    
-    
-        function sumarPrecio(articulo) {
-    
-            valorTotal += parseInt(articulo.getAttribute("value"));
-    
-            document.getElementById("precioTotal").innerHTML = valorTotal;
-            document.getElementById("precioTotal").getAttribute("value").innerHTML = valorTotal;
+        valorTotal += parseInt(articulo.getAttribute("value"));
+
+        document.getElementById("precioTotal").textContent = "Precio Total Carrito: " + valorTotal + "€";
+        document.getElementById("precioTotal").setAttribute("value", valorTotal);
+
+
+    }
+
+    function borrarUnidad(eraseButton) {
+
+
+        console.log(eraseButton);
+        var articulo = eraseButton.parentElement;
+        console.log(articulo);
+
+        var unidades = articulo.getAttribute("cantidad");
+        if (unidades > 1) {
+            unidades--;
+
+
+            articulo.setAttribute("cantidad", unidades);
+            articulo.getElementsByTagName("p")[0].textContent = "Unidades: " + unidades;
+            var precioUnidad = articulo.getAttribute("value");
+            articulo.getElementsByTagName("p")[2].textContent = "Precio total: " + precioUnidad * unidades + "€";
+
+
+        } else {
+            articulo.remove();
+
+            console.log("No se pueden restar más unidades");
         }
-    
-    </script>
+
+        var valorTotalCarrito = document.getElementById("precioTotal").getAttribute("value");
+        var valorArticulo = articulo.getAttribute("value");
+        document.getElementById("precioTotal").setAttribute("value", valorTotalCarrito - valorArticulo);
+        document.getElementById("precioTotal").textContent = "Precio Total Carrito: " + document.getElementById("precioTotal").getAttribute("value") + "€";
+
+
+    }
+
+    function borrarUnidades(eraseAllButton) {
+        var articulo = eraseAllButton.parentElement;
+        articulo.remove();
+
+
+        var valorTotalCarrito = document.getElementById("precioTotal").getAttribute("value");
+        var valorTotalArt = articulo.getAttribute("valuetotal");
+        document.getElementById("precioTotal").setAttribute("value", valorTotalCarrito - valorTotalArt);
+        document.getElementById("precioTotal").textContent = "Precio Total Carrito: " + document.getElementById("precioTotal").getAttribute("value") + "€";
+
+
+    }
+</script>
 
 </html>

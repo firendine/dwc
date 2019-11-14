@@ -1,0 +1,93 @@
+OBJETOS: DATE, String, Array
+
+
+CONVERT: parseint, parsefloat
+DATE: crear fecha y pedir acceder a los datos de una fecha, getmonth, get day y los set
+
+
+STRING: Poder acceder a una posicion de una cadena, charAr(), length, lastIndexof(), indexof()
+
+
+SUBCADENAS: slice, substrinv, split (relacion entre string y array)
+
+FORMAT: tolowercase, touppercase
+
+ARRAYS: insertar, borrar:
+	insertar: push()
+	borrar: splice <- permite borrar añadir y reemplazar
+	
+	recorrer:
+	for()
+	foreach() --\ añade una función que gestiona
+	map()-------/
+	filter()
+
+	array.foreach(myfunction)
+	myfunction(value,index,array)
+	|
+	v
+    fat arrow:
+	(n)=>{instrución1
+	 |	''	2
+	 v	''	3}
+	valor de la posicion
+
+buscar elemento en un array
+para saber que elemento quiero buscar  find(), findIndex(),
+
+fat arrow-> var found2 = array.find(n=>n>10);
+filter()
+
+
+JSON -> recorrer y buscar datos
+
+DOM:
+
+innerHTML (puede que sí o no)
+
+crear,seleccionar, modificar, borrar
+
+
+iterables: HTML collection array de elementos que no son iguales
+	   nodelist array de elementos iguales 
+ convertir en array.from(iterable)
+
+OBJETOS:
+varias formasde crear objetos: tipo json, prototype, class....
+
+
+
+EVENTOS:
+trabajar con this
+objeto.onclick = function(){}
+objeto.addEventListener("click",function(){});
+
+onchange() -> mirar para select
+
+
+FORMULARIOS:
+
+acceder por id es lo más fácil
+importatnte la propiedad value
+select, radiobutton, checkbox, text
+
+
+XMLHttpRequest:
+ http = new xmlHttpRequest;
+ "".open();
+ "".send();
+ "".addEventListener('nombreFuncion', function(){})
+ "".responseText()
+ "".response()
+ "".readyState == 0,1,2,3,(4)
+ "".status === 200 //siempre debe ser 200 si todo ha ido bien
+
+
+
+Peticion
+ | error: 1/0
+ | textoError: "404 not found"
+ | datos:{}
+ |	 [{},{}]
+
+

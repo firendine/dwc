@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="catalogo">
+        <div id="producto1" onclick="addToCarrito(this)" precio="100">
+            <img src="pc1.jpg">
+            <p>Precio: 100€</p>
+        </div>
+        <div id="producto2" onclick="addToCarrito(this)" precio="500">
+            <img src="pc2.jpg">
+            <p>Precio: 500€</p>
+        </div>
+        <div id="producto3" onclick="addToCarrito(this)" precio="1000">
+            <img src="pc3.jpg">
+            <p>Precio: 1000€</p>
+        </div>
+    </div>
+
+    <div id="carrito">
+
+    </div>
+
+</body>
+
+</html>
+<script>
+
+    function addToCarrito(producto) {
+        var carrito = document.getElementById("carrito");
+        var rutaImagen = producto.getElementsByTagName("img")[0].getAttribute("src");
+        var idProducto = producto.getAttribute("id");
+
+        var newDiv = document.createElement("div");
+        var newImg = document.createElement("img");
+        var newP = document.createElement("p");
+
+        var carritoProds = carrito.children;
+
+console.log(carritoProds);
+
+        for (let i = 0; i <= carritoProds.length; i++) {
+            console.log(carritoProds[i]);
+            if (carritoProds[i].hasAttribute("id") && carritoProds[i].getAttribute("id") == ("c-" + idProducto)) {
+                console.log("el id Existe");
+            } else {
+                console.log("el id no Existe");
+                //var nuevoProd = carrito.appendChild(newDiv);
+
+                var newArt = carrito.appendChild(newDiv);
+                var imgArticulo = newArt.appendChild(newImg);
+                imgArticulo.setAttribute("src", rutaImagen);
+                
+                //newArt.appendChild;
+                console.log(carritoProds[i]);
+
+
+                
+
+            }
+
+        }
+
+
+
+        
+    }
+
+</script>

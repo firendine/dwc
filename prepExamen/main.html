@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div id = "mostrar">
+
+    </div>
+    
+</body>
+</html>
+<script>
+//DATE: crear fecha y pedir acceder a los datos de una fecha, getmonth, get day y los set
+var date = new Date();
+
+var now = date.now;
+var time = date.getTime();
+
+var dia = date.setDate(5);
+var mes = date.setMonth(5);
+var ano = date.setFullYear(5);
+var hora = date.setHours(5);
+var minuto = date.setMinutes(5);
+var segundos = date.setSeconds(5);
+
+
+ diaSemana = date.getDay();
+ dia = date.getDate();
+ mes = date.getMonth();
+ ano = date.getFullYear();
+ hora = date.getHours();
+ minuto = date.getMinutes();
+ segundos = date.getSeconds();
+
+document.getElementById("mostrar").innerHTML= (date.getDate()+"<br>date:"+date+"<br>time:"+time+"<br>diaSemana:"+diaSemana+"<br>dia:"+dia+"<br>mes:"+mes+"<br>ano:"+ano+"<br>hora:"+hora+"<br>minutos:"+minuto+"<br>segundos:"+segundos);
+
+
+//CONVERT: parseint, parsefloat
+var num1 = "23.4";
+
+document.getElementById("mostrar").innerHTML = parseFloat(num1) + "<br>"+parseInt(num1);
+
+//STRING: Poder acceder a una posicion de una cadena, charAr(), length, lastIndexof(), indexof()
+var cad1 = "Hola, buenos días. Estoy probando las funciones de String Hola";
+
+document.write(cad1.charAt(0));
+document.write("<br>"+cad1.length);
+document.write("<br>"+cad1.indexOf("Hola",0));
+document.write("<br>"+cad1.indexOf("Hola",1));
+document.write("<br>"+cad1.lastIndexOf("Hola"));
+
+
+//SUBCADENAS: slice, substring, split (relacion entre string y array)
+
+document.write("<br>"+cad1.slice(2,10));
+document.write("<br>"+cad1.split(" "));
+document.write("<br>"+cad1.split(" ", 4));
+
+//FORMAT: tolowercase, touppercase
+document.write("<br>"+cad1.toUpperCase());
+document.write("<br>"+cad1.toLowerCase());
+
+//ARRAYS
+var ar1 = new Array();
+
+var ar2 = ["sed"["agua","otrabebida"],"hambre"["comida","mascomida"]];
+
+ar1.push("verde","azul","rojo","amarillo","morado", "naranja");
+
+ar1.forEach((n)=>{document.write("<br>"+n)});
+
+for(let i= 0; i< ar1.length;i++){
+    document.write("<br>"+ar1[i]);
+}
+
+ar1.map((n)=>{document.write("<br>"+n)});
+
+
+
+
+
+
+</script>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <form name="formulario">
+        <input type="radio" name="rad" value="hola">Hola<br>
+        <input type="radio" name="rad" value="adios">Adios<br>
+        <input type="radio" name="rad" value="hola2">Hola2<br>
+        <input type="radio" name="rad" value="adios2">Adios2<br>
+        <input type="radio" name="rad" value="hola3">Hola3<br>
+        <input type="radio" name="rad" value="adios3">Adios3<br>
+        <input type="button" id="but" value="obtener" onclick="radioBut()">
+    </form>
+    <form name="form">
+        <select name="lista" id="sel" multiple>
+            <option value="verde">verde</option>
+            <option value="amarillo">amarillo</option>
+            <option value="azul">azul</option>
+            <option value="rojo">rojo</option>
+        </select>
+        <input type="button" id="but2" value="obtener" onclick="selBut()">
+    </form>
+
+    <div id="mostrar"></div>
+
+</body>
+
+</html>
+
+<script>
+    function selBut(){
+        /*
+        var opciones = new Array();
+        var values = document.getElementById("sel").children;
+        console.log(values);
+        opciones.forEach(n=>{
+            if(n.checked){
+                opciones.push(values);
+            }
+        });
+        console.log(opciones);
+        */
+        var opciones = new Array();
+        const selected = document.querySelectorAll('#sel option:checked');
+        //const values = Array.from(selected).map((el) => el.value);
+        var values = Array.from(selected).map((element) => element.value);
+        opciones.push(values);
+        console.log(opciones);
+        
+    }
+
+    function radioBut() {
+
+        var radios = document.getElementsByName("rad");
+
+        radios.map(n => {
+            if (n.checked) {
+                document.getElementById("mostrar").textContent += " Este es:" + n.value;
+
+                console.log(n.getAttribute("value"));
+            } else {
+                document.getElementById("mostrar").textContent += " este no es:" + n.value;
+                console.log(n + "Este no está checked");
+            }
+        });
+
+
+    }
+
+</script>

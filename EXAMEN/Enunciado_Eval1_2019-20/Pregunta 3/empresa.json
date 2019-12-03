@@ -1,0 +1,46 @@
+{
+  "articulos": [
+    {
+      "id": "1",
+      "nombre": "I7 Lenovo",
+      "descripcion": "Portatil i7",
+      "precio": "100",
+      "categoria":"1"
+    },
+    {
+      "id": "10",
+      "nombre": "HP 1500L",
+      "descripcion": "Impresora Laser",
+      "precio": "200",
+      "categoria":"2"
+    },
+    {
+      "id": 100,
+      "nombre": "Raton",
+      "descripcion": "Raton bluetooh",
+      "precio": "15",
+      "categoria":"3"
+    },
+    {
+      "id": 1000,
+      "nombre": "Tablet",
+      "descripcion": "Tablet Samsumg 2019",
+      "precio": "15",
+      "categoria":"4"
+    }
+  ],
+  "categorias": [
+    {
+      "id": "1",
+      "nombre":"Portatiles"	
+    },
+    {
+      "id": "2",
+      "nombre":"Impresoras"
+    },
+    {
+      "id": "3",
+      "nombre":"Perifericos"
+    }
+  ]
+}

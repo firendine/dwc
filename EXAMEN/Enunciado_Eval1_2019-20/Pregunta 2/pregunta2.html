@@ -1,0 +1,75 @@
+<html>
+
+<head>
+	<script>
+		//carrito();
+
+
+		//--------------------------------------Objeto Carrito ---------------------------------------------
+
+		function Carrito(fecha, numero) {
+
+
+		}
+
+
+
+		//--------------------------------------Objeto Articulo ---------------------------------------------
+
+		function Articulo(codigo, descripcion, precio) {
+			this.codigo = codigo
+			this.descripcion = descripcion;
+			this.precio = precio;
+
+		}
+
+
+
+
+		//--------------------- Funciones para asociar al hacer click en las fotos y al hacer click en 'Ver Carrito'
+		function articulo_nuevo(datos) {
+
+			var arrDatos = datos.name.split("|");
+
+			var codigo = arrDatos[0];
+			var descripcion = arrDatos[1];
+			var precio = arrDatos[2];
+
+			var art = new Articulo(codigo, descripcion, precio);
+
+			ponArticulo(art);
+
+		}
+
+
+		function ponArticulo(articulo) {
+
+		}
+
+
+
+	</script>
+</head>
+
+<body>
+	<center>
+		<img src="portatil.png" id="portatil" name="Articulo1|Portatil|550" onclick="articulo_nuevo(this)">
+		<img src="disco.png" id="disco" name="Articulo2|Disco|80" onclick="articulo_nuevo(this)">
+		<img src="tablet.png" id="tablet" name="Articulo3|Tablet|480" onclick="articulo_nuevo(this)">
+
+		<br><br>
+
+		<a id="boton" href="#">Ver Carrito</a>
+
+		<div id="listaCarrito">
+			<div>
+	</center>
+</body>
+
+</html>
+
+<script>
+
+
+
+</script>

@@ -1,0 +1,68 @@
+<script src="js/jquery.min.js"></script>
+<link rel="stylesheet" href="css/main.css" type="text/css" />
+
+<div class="ejemplos">
+
+    <button name="boton1" class="boton1">Ejemplo 1 (simple)</button>
+    <button name="boton2" class="boton2">Ejemplo 2 (post)</button>
+    <button name="boton3" class="boton3">Ejemplo 3 (xml)</button>
+    <button name="boton4" class="boton4">Ejemplo 4 (json)</button>
+
+    <script language="javascript" type="text/javascript">
+   
+    $('.boton1').click( function() {
+
+        $.ajax({
+          url: 'ejemplo1.php',
+          success: function(data) {
+            $('.resultados').html(data);
+          }
+        });
+
+    });
+
+    $('.boton2').click( function() {
+
+        $.ajax({
+          type: 'POST',
+          url: 'ejemplo2.php',
+          data: 'nombre=Pepe&apellido=Perez',
+          success: function(data){
+            $('.resultados').html(data);
+          }
+        });
+
+    });
+
+
+    $('.boton3').click( function() {
+
+        $.ajax({
+          dataType: 'xml',
+          url: 'ejemplo3.php',
+          success: function(xmldata){
+            $('.resultados').html('');
+            $(xmldata).find('item').each(function(){
+                $('<li></li>').html( $(this).text() ).appendTo('.resultados');
+            });
+          }
+        });
+
+    });
+
+    $('.boton4').click( function() {
+
+        $.ajax({
+          dataType: 'json',
+          url: 'ejemplo4.php',
+          success: function(jsondata){
+            $('.resultados').html('Nombre = ' + jsondata.nombre + ', Apellido = ' + jsondata.apellido);
+          }
+        });
+
+    });
+    </script>
+
+    <div class="resultados">Esperando respuesta</div>
+    <div style="clear:both"></div>
+</div>
